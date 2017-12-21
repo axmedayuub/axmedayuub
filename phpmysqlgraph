@@ -1,0 +1,48 @@
+var sid = [];
+		var markes = [];
+		$(".id").each(function(){
+			sid.push($(this).val());
+		});
+
+		$(".mar").each(function(){
+			markes.push($(this).val());
+		});
+
+		var chartdata = {
+				labels: sid,
+				datasets : [
+					{
+						label: 'student',
+						backgroundColor: [
+							'rgba(200, 90, 200, 0.75)',
+							'rgba(200, 100, 45, 0.75)',
+							'rgba(200, 100, 20, 0.75)',
+							'rgba(200, 50, 100, 0.75)',
+							'rgba(100, 10, 200, 0.75)'
+						],
+						borderColor: 'rgba(200, 200, 200, 0.75)',
+						hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+						hoverBorderColor: 'rgba(200, 200, 200, 1)',
+						data: markes
+					}
+				]
+			};
+		//drawing charts
+		var markeschart = document.getElementById("canvas").getContext('2d');
+		var stdmarkes = new Chart(markeschart,{
+			type:'pie',
+			data:chartdata
+		});
+
+
+
+<?php
+		mysql_connect("localhost","root","123");
+		mysql_select_db("testing");
+		$select = "select sid,markes from student ORDER BY sid";
+		$res = mysql_query($select);
+		while($row = mysql_fetch_array($res)){
+			print "<input type='hidden' class='id' value='".$row['sid']."'/>";
+			print "<input type='hidden' class='mar' value='".$row['markes']."'/>";
+		}
+	?>
