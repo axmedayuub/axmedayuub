@@ -1,0 +1,199 @@
+<html>
+<head>
+<title>The jQuery Example</title>
+	<meta name="viewport" content="width=device-width" />
+	<link  rel="stylesheet" href="bootstrap.css"/>
+	<script type="text/javascript" src="jquery.min.js"></script>
+        <script type="text/javascript" src="jquery-ui.min.js"></script>
+	<script type="text/javascript" src="bootstrap.js"></script>
+        <script>
+            $(document).ready(function(){
+               $("#b1").click(function(){
+                   if($("#result").val()!=''){
+                       $("#texttocal").show().val($(this).val()); 
+                       $("#result").val('').hide();
+                   }else{
+                       $("#texttocal").show().val($("#texttocal").val()+$(this).val()); 
+                   }
+                   
+               });
+               $("#b2").click(function(){
+                   if($("#result").val()!=''){
+                       $("#texttocal").show().val($(this).val()); 
+                       $("#result").val('').hide();
+                   }else{
+                       $("#texttocal").show().val($("#texttocal").val()+$(this).val()); 
+                   }
+               });
+               $("#b3").click(function(){
+                   if($("#result").val()!=''){
+                       $("#texttocal").show().val($(this).val()); 
+                       $("#result").val('').hide();
+                   }else{
+                       $("#texttocal").show().val($("#texttocal").val()+$(this).val()); 
+                   } 
+               });
+               $("#b4").click(function(){
+                    if($("#result").val()!=''){
+                       $("#texttocal").show().val($(this).val()); 
+                       $("#result").val('').hide();
+                   }else{
+                       $("#texttocal").show().val($("#texttocal").val()+$(this).val()); 
+                   } 
+               });
+               $("#b5").click(function(){
+                    if($("#result").val()!=''){
+                       $("#texttocal").show().val($(this).val()); 
+                       $("#result").val('').hide();
+                   }else{
+                       $("#texttocal").show().val($("#texttocal").val()+$(this).val()); 
+                   } 
+               });
+               $("#b6").click(function(){
+                    if($("#result").val()!=''){
+                       $("#texttocal").show().val($(this).val()); 
+                       $("#result").val('').hide();
+                   }else{
+                       $("#texttocal").show().val($("#texttocal").val()+$(this).val()); 
+                   } 
+               });
+               $("#b7").click(function(){
+                   if($("#result").val()!=''){
+                       $("#texttocal").show().val($(this).val()); 
+                       $("#result").val('').hide();
+                   }else{
+                       $("#texttocal").show().val($("#texttocal").val()+$(this).val()); 
+                   } 
+               });
+               $("#b8").click(function(){
+                   if($("#result").val()!=''){
+                       $("#texttocal").show().val($(this).val()); 
+                       $("#result").val('').hide();
+                   }else{
+                       $("#texttocal").show().val($("#texttocal").val()+$(this).val()); 
+                   } 
+               });
+               $("#b9").click(function(){
+                    if($("#result").val()!=''){
+                       $("#texttocal").show().val($(this).val()); 
+                       $("#result").val('').hide();
+                   }else{
+                       $("#texttocal").show().val($("#texttocal").val()+$(this).val()); 
+                   } 
+               });
+               $("#b0").click(function(){
+                    if($("#result").val()!=''){
+                       $("#texttocal").show().val($(this).val()); 
+                       $("#result").val('').hide();
+                   }else{
+                       $("#texttocal").show().val($("#texttocal").val()+$(this).val()); 
+                   } 
+               });
+               $("#bdot").click(function(){
+                   if($("#result").val()!=''){
+                       $("#texttocal").show().val($(this).val()); 
+                       $("#result").val('').hide();
+                   }else{
+                       $("#texttocal").show().val($("#texttocal").val()+$(this).val()); 
+                   } 
+               });
+               $("#bdiv").click(function(){
+                   $.post(
+                        "php.php",
+                        { cal: $("#texttocal").val() },
+                        function(data) {
+                            if(data != "can not devide by zero"){
+                                 $("#texttocal").show().val(data+$("#bdiv").val());
+                            }else{
+                                alert(data);
+                            }
+                            
+                        }
+                    );
+               });
+               $("#bsub").click(function(){
+                   $.post(
+                        "php.php",
+                        { cal: $("#texttocal").val() },
+                        function(data) {
+                             $("#texttocal").show().val(data+$("#bsub").val());
+                        }
+                    ); 
+               });
+               $("#bmult").click(function(){
+                   $.post(
+                        "php.php",
+                        { cal: $("#texttocal").val() },
+                        function(data) {
+                             $("#texttocal").show().val(data+$("#bmult").val());
+                        }
+                    ); 
+               });
+               $("#badd").click(function(){
+                    $.post(
+                        "php.php",
+                        { cal: $("#texttocal").val() },
+                        function(data) {
+                            $("#texttocal").show().val(data+$("#badd").val());
+                        }
+                    );
+               });
+               
+               $("#bequal").click(function(){
+                    $.post(
+                        "php.php",
+                        { cal: $("#texttocal").val() },
+                        function(data) {
+                            $("#texttocal").hide();
+                            $("#result").show().val(data);
+                        }
+                    );
+               });
+            });
+        </script>
+        <style>
+            button{
+                width: 100%;
+            }
+            #result{
+                display: none;
+            }
+        </style>
+	</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-4">
+                <table class="table table-bordered text-center">
+                    <tr><input type="text" id="texttocal" class="form-control"/></tr>
+                    <tr id="resulttr"><input type="text" id="result" class="form-control"/></tr>
+                    <tr>
+                        <td><button class="btn btn-default" value="1" id="b1">1</button></td>
+                         <td><button class="btn btn-default" value="2" id="b2">2</button></td>
+                          <td><button class="btn btn-default" value="3" id="b3">3</button></td>
+                            <td><button class="btn btn-default" value="/" id="bdiv">/</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn btn-default" value="4" id="b4">4</button></td>
+                         <td><button class="btn btn-default" value="5" id="b5">5</button></td>
+                          <td><button class="btn btn-default" value="6" id="b6">6</button></td>
+                            <td><button class="btn btn-default" value="*" id="bmult">*</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn btn-default" value="7" id="b7">7</button></td>
+                         <td><button class="btn btn-default" value="8" id="b8">8</button></td>
+                          <td><button class="btn btn-default" value="9" id="b9">9</button></td>
+                            <td><button class="btn btn-default" value="-" id="bsub">-</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn btn-default" value="0" id="b0">0</button></td>
+                         <td><button class="btn btn-default" value="." id="bdot">.</button></td>
+                         <td><button class="btn btn-default" value="9" id="bequal" autofocus="focused">=</button></td>
+                            <td><button class="btn btn-default" value="+" id="badd">+</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
